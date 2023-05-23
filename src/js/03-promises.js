@@ -107,6 +107,7 @@ function onBtnStartClick() {
       });
     delay += step;
   }
+  // блокування кнопки на час виведення промісів
 setTimeout(() => {
   btnStart.disabled = false
 }, delay);
