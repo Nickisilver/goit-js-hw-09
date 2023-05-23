@@ -69,6 +69,9 @@ const formRef = document.querySelector('form')
 const inputDelay = document.querySelector('[ name="delay"]');
 const inputStep = document.querySelector('[ name="step"]');
 const inputAmount = document.querySelector('[name="amount"]');
+let delay = null;
+let step = null;
+let amount = null;
 
 formRef.addEventListener('input', onFormInput);
 formRef.addEventListener('submit', preventDefault)
