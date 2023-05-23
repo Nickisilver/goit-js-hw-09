@@ -3,7 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
 const btnStart = document.querySelector('button[data-start]');
-
+const calendarFiels = document.querySelector('#datetime-picker')
 btnStart.disabled = true;
 
 // Об'єкт налаштувань для функції бібліотеки "flatpickr"
@@ -25,7 +25,7 @@ const options = {
 
 // Ініціалізація бібліотеки "flatpickr" на елементі input
 const fp = flatpickr('#datetime-picker', options);
-
+fp.disabled = true
 //Створення класу countDownTimer
 class countDownTimer {
   constructor({ selector }) {
@@ -51,6 +51,13 @@ class countDownTimer {
       this.hoursSpan.textContent = hours;
       this.minutesSpan.textContent = minutes;
       this.secondsSpan.textContent = seconds;
+      calendarFiels.disabled = true
+      if (delta < 1000) {
+        clearInterval(this.intervalId);
+        calendarFiels.disabled = false
+        Notiflix.Notify.success('The timer has been completed');
+      }
+  
     }, 1000);
   }
 
